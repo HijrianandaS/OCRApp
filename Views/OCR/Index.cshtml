@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Http
+@model IFormFile
+
+<h2>Upload Image for OCR</h2>
+
+<form method="post" enctype="multipart/form-data" action="/OCR/UploadImage">
+    <div>
+        <label for="image">Select Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required />
+    </div>
+    <button type="submit">Extract Text</button>
+</form>
+
+@if (ViewBag.OCRResult != null)
+{
+    <h3>Extracted Text:</h3>
+    <pre>@ViewBag.OCRResult</pre>
+}
